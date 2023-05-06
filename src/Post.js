@@ -28,7 +28,7 @@ export default function Post(props) {
     }
 
     return (
-        <div class="post">
+        <div class="post" data-test="post">
             <div class="topo">
                 <div class="usuario">
                     <img src={props.pfp} alt={props.user} />
@@ -40,24 +40,24 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.image} alt={props.image} />
+                <img src={props.image} alt={props.image} data-test="post-image" onClick={curtirPost}/>
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name={coracao} class={classeCoracao} onClick={curtirPost}></ion-icon>
+                        <ion-icon name={coracao} class={classeCoracao} onClick={curtirPost} data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name={salvar} onClick={salvarPost}></ion-icon>
+                        <ion-icon name={salvar} onClick={salvarPost} data-test="save-post"></ion-icon>
                     </div>
                 </div>
 
                 <div class="curtidas">
                     <img src="assets/img/respondeai.svg" alt="respondeai" />
-                    <div class="texto">
+                    <div class="texto" data-test="likes-number">
                         Curtido por <strong>respondeai</strong> e <strong>outras {classCurtes} pessoas</strong>
                     </div>
                 </div>
