@@ -7,7 +7,7 @@ export default function Post(props) {
     let curtes = props.likes;
     let [classCurtes, setClassCurtes] = useState(curtes);
     
-    function curtirPost() {
+    function curtirPostBotao() {
         if (coracao === 'heart-outline') {
             setCoracao('heart');
             setClasseCoracao('vermelho');
@@ -17,6 +17,14 @@ export default function Post(props) {
             setClasseCoracao('preto');
             setClassCurtes(curtes);
         }
+    }
+
+    function curtirPostImagem() {
+        if (coracao === 'heart-outline') {
+            setCoracao('heart');
+            setClasseCoracao('vermelho');
+            setClassCurtes(curtes + 1);
+        } 
     }
     
     function salvarPost() {
@@ -40,13 +48,13 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.image} alt={props.image} data-test="post-image" onClick={curtirPost}/>
+                <img src={props.image} alt={props.image} data-test="post-image" onClick={curtirPostImagem}/>
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name={coracao} class={classeCoracao} onClick={curtirPost} data-test="like-post"></ion-icon>
+                        <ion-icon name={coracao} class={classeCoracao} onClick={curtirPostBotao} data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>

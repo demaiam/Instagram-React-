@@ -1,16 +1,18 @@
 import { useState } from "react";
 
 export default function User() {   
-    let [imagem, setImagem] = useState('assets/img/default-pfp.svg');
+    let [imagem, setImagem] = useState('https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg');
     let [nome, setNome] = useState('Usuário');
 
     function alterarNome() {
         let novoNome = prompt("Qual o seu nome?");
+        !novoNome ? novoNome = 'Usuário' : novoNome = novoNome;
         setNome(novoNome);
     }
     
     function alterarImagem() {
         let novaImagem = prompt("Insira o link da imagem");
+        !novaImagem ? novaImagem = 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg' : novaImagem = novaImagem;
         setImagem(novaImagem);
     }
 
